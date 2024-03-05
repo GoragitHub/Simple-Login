@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>View Picture</h2>
+  {{ picture.pk }}
+  <img src="{% url 'protected_media' picture.picture.name %}" alt="{{ picture }}">
+  <!-- Add the logout button -->
+  <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+{% endblock %}
